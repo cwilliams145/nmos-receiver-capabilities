@@ -1,0 +1,295 @@
+---
+layout: default
+title: Schema constraint_set.json
+---
+
+<html>
+<meta charset="UTF-8">
+<h2>Schema constraint_set.json</h2>
+<p>
+    <a href="../../schemas/with-refs/constraint_set.html">Show original (referenced schemas with $ref)</a>
+</p>
+<div id="json-render">
+<script type="text/javascript" src="codemirror/lib/codemirror.js"></script>
+<link rel="stylesheet" href="codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="codemirror/addon/fold/foldgutter.css">
+<script src="codemirror/mode/javascript/javascript.js"></script>
+<script src="codemirror/addon/fold/foldcode.js"></script>
+<script src="codemirror/addon/fold/foldgutter.js"></script>
+<script src="codemirror/addon/fold/brace-fold.js"></script>
+<script src="codemirror/addon/fold/indent-fold.js"></script>
+
+<style>
+  .CodeMirror {
+    border-top: 1px solid black; 
+    border-bottom: 1px solid black;
+    height: 500px;
+  }
+</style>
+
+<textarea id="mytextarea">
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "Describes a Constraint Set",
+    "minProperties": 1,
+    "patternProperties": {
+        "^urn:x-nmos:cap:(?!meta:)": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "anyOf": [
+                {
+                    "$schema": "http://json-schema.org/draft-04/schema#",
+                    "description": "Describes a String Parameter Constraint",
+                    "minProperties": 2,
+                    "properties": {
+                        "enum": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "minItems": 1,
+                            "type": "array"
+                        },
+                        "pattern": {
+                            "format": "regex",
+                            "type": "string"
+                        },
+                        "type": {
+                            "enum": [
+                                "string"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "type"
+                    ],
+                    "title": "String Parameter Constraint",
+                    "type": "object"
+                },
+                {
+                    "$schema": "http://json-schema.org/draft-04/schema#",
+                    "description": "Describes an Integer Parameter Constraint",
+                    "minProperties": 2,
+                    "properties": {
+                        "enum": {
+                            "items": {
+                                "type": "integer"
+                            },
+                            "minItems": 1,
+                            "type": "array"
+                        },
+                        "maximum": {
+                            "type": "integer"
+                        },
+                        "minimum": {
+                            "type": "integer"
+                        },
+                        "type": {
+                            "enum": [
+                                "integer"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "type"
+                    ],
+                    "title": "Integer Parameter Constraint",
+                    "type": "object"
+                },
+                {
+                    "$schema": "http://json-schema.org/draft-04/schema#",
+                    "description": "Describes a Number Parameter Constraint",
+                    "minProperties": 2,
+                    "properties": {
+                        "enum": {
+                            "items": {
+                                "type": "number"
+                            },
+                            "minItems": 1,
+                            "type": "array"
+                        },
+                        "maximum": {
+                            "type": "number"
+                        },
+                        "minimum": {
+                            "type": "number"
+                        },
+                        "type": {
+                            "enum": [
+                                "number"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "type"
+                    ],
+                    "title": "Number Parameter Constraint",
+                    "type": "object"
+                },
+                {
+                    "$schema": "http://json-schema.org/draft-04/schema#",
+                    "description": "Describes a Boolean Parameter Constraint",
+                    "minProperties": 2,
+                    "properties": {
+                        "enum": {
+                            "items": {
+                                "type": "boolean"
+                            },
+                            "minItems": 1,
+                            "type": "array"
+                        },
+                        "type": {
+                            "enum": [
+                                "boolean"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "type"
+                    ],
+                    "title": "Boolean Parameter Constraint",
+                    "type": "object"
+                },
+                {
+                    "$schema": "http://json-schema.org/draft-04/schema#",
+                    "definitions": {
+                        "rational": {
+                            "additionalProperties": false,
+                            "properties": {
+                                "denominator": {
+                                    "default": 1,
+                                    "type": "integer"
+                                },
+                                "numerator": {
+                                    "type": "integer"
+                                }
+                            },
+                            "required": [
+                                "numerator"
+                            ],
+                            "type": "object"
+                        }
+                    },
+                    "description": "Describes a Rational Parameter Constraint",
+                    "minProperties": 2,
+                    "properties": {
+                        "enum": {
+                            "items": {
+                                "additionalProperties": false,
+                                "properties": {
+                                    "denominator": {
+                                        "default": 1,
+                                        "type": "integer"
+                                    },
+                                    "numerator": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "required": [
+                                    "numerator"
+                                ],
+                                "type": "object"
+                            },
+                            "minItems": 1,
+                            "type": "array"
+                        },
+                        "maximum": {
+                            "additionalProperties": false,
+                            "properties": {
+                                "denominator": {
+                                    "default": 1,
+                                    "type": "integer"
+                                },
+                                "numerator": {
+                                    "type": "integer"
+                                }
+                            },
+                            "required": [
+                                "numerator"
+                            ],
+                            "type": "object"
+                        },
+                        "minimum": {
+                            "additionalProperties": false,
+                            "properties": {
+                                "denominator": {
+                                    "default": 1,
+                                    "type": "integer"
+                                },
+                                "numerator": {
+                                    "type": "integer"
+                                }
+                            },
+                            "required": [
+                                "numerator"
+                            ],
+                            "type": "object"
+                        },
+                        "type": {
+                            "enum": [
+                                "rational"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "type"
+                    ],
+                    "title": "Rational Parameter Constraint",
+                    "type": "object"
+                }
+            ],
+            "description": "Describes a Parameter Constraint",
+            "title": "Parameter Constraint",
+            "type": "object"
+        }
+    },
+    "title": "Constraint Set",
+    "type": "object"
+}
+</textarea>
+<script>
+window.editor_json = CodeMirror.fromTextArea(mytextarea, {
+    mode: {
+        name: "javascript",
+        json: true
+    },
+    readOnly: true,
+    lineNumbers: false,
+    lineWrapping: true,
+    extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }},
+    foldGutter: true,
+    gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+    foldOptions: {
+      widget: (from, to) => {
+        var count = undefined;
+
+        // Get open / close token
+        var startToken = '{', endToken = '}';
+        var prevLine = window.editor_json.getLine(from.line);
+        if (prevLine.lastIndexOf('[') > prevLine.lastIndexOf('{')) {
+          startToken = '[', endToken = ']';
+        }
+
+        // Get json content
+        var internal = window.editor_json.getRange(from, to);
+        var toParse = startToken + internal + endToken;
+
+        // Get key count
+        try {
+          var parsed = JSON.parse(toParse);
+          count = Object.keys(parsed).length;
+        } catch(e) { }
+
+        return count ? `\u21A4${count}\u21A6` : '\u2194';
+        }
+      }
+    }
+  );
+editor_json.
+editor_json.foldCode(CodeMirror.Pos(3, 0));
+</script>
+</div>
+</html>
