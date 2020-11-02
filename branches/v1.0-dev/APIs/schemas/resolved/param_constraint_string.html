@@ -31,7 +31,7 @@ title: Schema param_constraint_string.json
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "description": "Describes a String Parameter Constraint",
-    "minProperties": 2,
+    "minProperties": 1,
     "properties": {
         "enum": {
             "items": {
@@ -39,17 +39,8 @@ title: Schema param_constraint_string.json
             },
             "minItems": 1,
             "type": "array"
-        },
-        "type": {
-            "enum": [
-                "string"
-            ],
-            "type": "string"
         }
     },
-    "required": [
-        "type"
-    ],
     "title": "String Parameter Constraint",
     "type": "object"
 }

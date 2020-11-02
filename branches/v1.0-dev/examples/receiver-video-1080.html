@@ -49,26 +49,21 @@ title: Example receiver-video-1080.json
         {
           "urn:x-nmos:cap:meta:label": "1080i",
           "urn:x-nmos:cap:format:color_sampling": {
-            "type": "string",
             "enum": [ "YCbCr-4:2:2" ]
           },
           "urn:x-nmos:cap:format:frame_height": {
-            "type": "integer",
             "enum": [ 1080 ]
           },
           "urn:x-nmos:cap:format:frame_width": {
-            "type": "integer",
             "enum": [ 1920 ]
           },
           "urn:x-nmos:cap:format:grain_rate": {
-            "type": "rational",
             "enum": [
                { "numerator": 25 },
                { "numerator": 30000, "denominator": 1001 }
              ]
           },
           "urn:x-nmos:cap:format:interlace_mode": {
-            "type": "string",
             "enum": [
               "interlaced_tff",
               "interlaced_bff",
@@ -79,19 +74,15 @@ title: Example receiver-video-1080.json
         {
           "urn:x-nmos:cap:meta:label": "1080p",
           "urn:x-nmos:cap:format:color_sampling": {
-            "type": "string",
             "enum": [ "YCbCr-4:2:2" ]
           },
           "urn:x-nmos:cap:format:frame_height": {
-            "type": "integer",
             "enum": [ 1080 ]
           },
           "urn:x-nmos:cap:format:frame_width": {
-            "type": "integer",
             "enum": [ 1920 ]
           },
           "urn:x-nmos:cap:format:grain_rate": {
-            "type": "rational",
             "enum": [
                { "numerator": 25 },
                { "numerator": 30000, "denominator": 1001 },
@@ -100,7 +91,6 @@ title: Example receiver-video-1080.json
              ]
           },
           "urn:x-nmos:cap:format:interlace_mode": {
-            "type": "string",
             "enum": [ "progressive" ]
           }
         }

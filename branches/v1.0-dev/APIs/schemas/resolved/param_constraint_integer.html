@@ -31,7 +31,7 @@ title: Schema param_constraint_integer.json
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "description": "Describes an Integer Parameter Constraint",
-    "minProperties": 2,
+    "minProperties": 1,
     "properties": {
         "enum": {
             "items": {
@@ -45,17 +45,8 @@ title: Schema param_constraint_integer.json
         },
         "minimum": {
             "type": "integer"
-        },
-        "type": {
-            "enum": [
-                "integer"
-            ],
-            "type": "string"
         }
     },
-    "required": [
-        "type"
-    ],
     "title": "Integer Parameter Constraint",
     "type": "object"
 }

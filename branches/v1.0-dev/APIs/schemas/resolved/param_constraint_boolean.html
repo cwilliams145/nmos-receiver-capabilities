@@ -31,7 +31,7 @@ title: Schema param_constraint_boolean.json
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "description": "Describes a Boolean Parameter Constraint",
-    "minProperties": 2,
+    "minProperties": 1,
     "properties": {
         "enum": {
             "items": {
@@ -39,17 +39,8 @@ title: Schema param_constraint_boolean.json
             },
             "minItems": 1,
             "type": "array"
-        },
-        "type": {
-            "enum": [
-                "boolean"
-            ],
-            "type": "string"
         }
     },
-    "required": [
-        "type"
-    ],
     "title": "Boolean Parameter Constraint",
     "type": "object"
 }

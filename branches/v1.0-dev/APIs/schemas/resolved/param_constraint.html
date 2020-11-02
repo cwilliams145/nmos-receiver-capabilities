@@ -34,7 +34,7 @@ title: Schema param_constraint.json
         {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "description": "Describes a String Parameter Constraint",
-            "minProperties": 2,
+            "minProperties": 1,
             "properties": {
                 "enum": {
                     "items": {
@@ -42,24 +42,15 @@ title: Schema param_constraint.json
                     },
                     "minItems": 1,
                     "type": "array"
-                },
-                "type": {
-                    "enum": [
-                        "string"
-                    ],
-                    "type": "string"
                 }
             },
-            "required": [
-                "type"
-            ],
             "title": "String Parameter Constraint",
             "type": "object"
         },
         {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "description": "Describes an Integer Parameter Constraint",
-            "minProperties": 2,
+            "minProperties": 1,
             "properties": {
                 "enum": {
                     "items": {
@@ -73,24 +64,15 @@ title: Schema param_constraint.json
                 },
                 "minimum": {
                     "type": "integer"
-                },
-                "type": {
-                    "enum": [
-                        "integer"
-                    ],
-                    "type": "string"
                 }
             },
-            "required": [
-                "type"
-            ],
             "title": "Integer Parameter Constraint",
             "type": "object"
         },
         {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "description": "Describes a Number Parameter Constraint",
-            "minProperties": 2,
+            "minProperties": 1,
             "properties": {
                 "enum": {
                     "items": {
@@ -104,24 +86,15 @@ title: Schema param_constraint.json
                 },
                 "minimum": {
                     "type": "number"
-                },
-                "type": {
-                    "enum": [
-                        "number"
-                    ],
-                    "type": "string"
                 }
             },
-            "required": [
-                "type"
-            ],
             "title": "Number Parameter Constraint",
             "type": "object"
         },
         {
             "$schema": "http://json-schema.org/draft-04/schema#",
             "description": "Describes a Boolean Parameter Constraint",
-            "minProperties": 2,
+            "minProperties": 1,
             "properties": {
                 "enum": {
                     "items": {
@@ -129,17 +102,8 @@ title: Schema param_constraint.json
                     },
                     "minItems": 1,
                     "type": "array"
-                },
-                "type": {
-                    "enum": [
-                        "boolean"
-                    ],
-                    "type": "string"
                 }
             },
-            "required": [
-                "type"
-            ],
             "title": "Boolean Parameter Constraint",
             "type": "object"
         },
@@ -164,7 +128,7 @@ title: Schema param_constraint.json
                 }
             },
             "description": "Describes a Rational Parameter Constraint",
-            "minProperties": 2,
+            "minProperties": 1,
             "properties": {
                 "enum": {
                     "items": {
@@ -217,17 +181,8 @@ title: Schema param_constraint.json
                         "numerator"
                     ],
                     "type": "object"
-                },
-                "type": {
-                    "enum": [
-                        "rational"
-                    ],
-                    "type": "string"
                 }
             },
-            "required": [
-                "type"
-            ],
             "title": "Rational Parameter Constraint",
             "type": "object"
         }
