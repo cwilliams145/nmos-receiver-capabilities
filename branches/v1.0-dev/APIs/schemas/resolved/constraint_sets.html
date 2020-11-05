@@ -31,208 +31,194 @@ title: Schema constraint_sets.json
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "description": "Describes a list of Constraint Sets",
-    "properties": {
-        "values": {
-            "items": {
+    "items": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "description": "Describes a Constraint Set",
+        "minProperties": 1,
+        "patternProperties": {
+            "^urn:x-nmos:cap:(?!meta:)": {
                 "$schema": "http://json-schema.org/draft-04/schema#",
-                "description": "Describes a Constraint Set",
-                "minProperties": 1,
-                "patternProperties": {
-                    "^urn:x-nmos:cap:(?!meta:)": {
+                "anyOf": [
+                    {
                         "$schema": "http://json-schema.org/draft-04/schema#",
-                        "anyOf": [
-                            {
-                                "$schema": "http://json-schema.org/draft-04/schema#",
-                                "description": "Describes a String Parameter Constraint",
-                                "minProperties": 1,
-                                "properties": {
-                                    "enum": {
-                                        "items": {
-                                            "type": "string"
-                                        },
-                                        "minItems": 1,
-                                        "type": "array"
-                                    }
+                        "description": "Describes a String Parameter Constraint",
+                        "minProperties": 1,
+                        "properties": {
+                            "enum": {
+                                "items": {
+                                    "type": "string"
                                 },
-                                "title": "String Parameter Constraint",
-                                "type": "object"
+                                "minItems": 1,
+                                "type": "array"
+                            }
+                        },
+                        "title": "String Parameter Constraint",
+                        "type": "object"
+                    },
+                    {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "description": "Describes an Integer Parameter Constraint",
+                        "minProperties": 1,
+                        "properties": {
+                            "enum": {
+                                "items": {
+                                    "type": "integer"
+                                },
+                                "minItems": 1,
+                                "type": "array"
                             },
-                            {
-                                "$schema": "http://json-schema.org/draft-04/schema#",
-                                "description": "Describes an Integer Parameter Constraint",
-                                "minProperties": 1,
+                            "maximum": {
+                                "type": "integer"
+                            },
+                            "minimum": {
+                                "type": "integer"
+                            }
+                        },
+                        "title": "Integer Parameter Constraint",
+                        "type": "object"
+                    },
+                    {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "description": "Describes a Number Parameter Constraint",
+                        "minProperties": 1,
+                        "properties": {
+                            "enum": {
+                                "items": {
+                                    "type": "number"
+                                },
+                                "minItems": 1,
+                                "type": "array"
+                            },
+                            "maximum": {
+                                "type": "number"
+                            },
+                            "minimum": {
+                                "type": "number"
+                            }
+                        },
+                        "title": "Number Parameter Constraint",
+                        "type": "object"
+                    },
+                    {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "description": "Describes a Boolean Parameter Constraint",
+                        "minProperties": 1,
+                        "properties": {
+                            "enum": {
+                                "items": {
+                                    "type": "boolean"
+                                },
+                                "minItems": 1,
+                                "type": "array"
+                            }
+                        },
+                        "title": "Boolean Parameter Constraint",
+                        "type": "object"
+                    },
+                    {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "definitions": {
+                            "rational": {
+                                "additionalProperties": false,
                                 "properties": {
-                                    "enum": {
-                                        "items": {
-                                            "type": "integer"
-                                        },
-                                        "minItems": 1,
-                                        "type": "array"
-                                    },
-                                    "maximum": {
+                                    "denominator": {
+                                        "default": 1,
                                         "type": "integer"
                                     },
-                                    "minimum": {
+                                    "numerator": {
                                         "type": "integer"
                                     }
                                 },
-                                "title": "Integer Parameter Constraint",
-                                "type": "object"
-                            },
-                            {
-                                "$schema": "http://json-schema.org/draft-04/schema#",
-                                "description": "Describes a Number Parameter Constraint",
-                                "minProperties": 1,
-                                "properties": {
-                                    "enum": {
-                                        "items": {
-                                            "type": "number"
-                                        },
-                                        "minItems": 1,
-                                        "type": "array"
-                                    },
-                                    "maximum": {
-                                        "type": "number"
-                                    },
-                                    "minimum": {
-                                        "type": "number"
-                                    }
-                                },
-                                "title": "Number Parameter Constraint",
-                                "type": "object"
-                            },
-                            {
-                                "$schema": "http://json-schema.org/draft-04/schema#",
-                                "description": "Describes a Boolean Parameter Constraint",
-                                "minProperties": 1,
-                                "properties": {
-                                    "enum": {
-                                        "items": {
-                                            "type": "boolean"
-                                        },
-                                        "minItems": 1,
-                                        "type": "array"
-                                    }
-                                },
-                                "title": "Boolean Parameter Constraint",
-                                "type": "object"
-                            },
-                            {
-                                "$schema": "http://json-schema.org/draft-04/schema#",
-                                "definitions": {
-                                    "rational": {
-                                        "additionalProperties": false,
-                                        "properties": {
-                                            "denominator": {
-                                                "default": 1,
-                                                "type": "integer"
-                                            },
-                                            "numerator": {
-                                                "type": "integer"
-                                            }
-                                        },
-                                        "required": [
-                                            "numerator"
-                                        ],
-                                        "type": "object"
-                                    }
-                                },
-                                "description": "Describes a Rational Parameter Constraint",
-                                "minProperties": 1,
-                                "properties": {
-                                    "enum": {
-                                        "items": {
-                                            "additionalProperties": false,
-                                            "properties": {
-                                                "denominator": {
-                                                    "default": 1,
-                                                    "type": "integer"
-                                                },
-                                                "numerator": {
-                                                    "type": "integer"
-                                                }
-                                            },
-                                            "required": [
-                                                "numerator"
-                                            ],
-                                            "type": "object"
-                                        },
-                                        "minItems": 1,
-                                        "type": "array"
-                                    },
-                                    "maximum": {
-                                        "additionalProperties": false,
-                                        "properties": {
-                                            "denominator": {
-                                                "default": 1,
-                                                "type": "integer"
-                                            },
-                                            "numerator": {
-                                                "type": "integer"
-                                            }
-                                        },
-                                        "required": [
-                                            "numerator"
-                                        ],
-                                        "type": "object"
-                                    },
-                                    "minimum": {
-                                        "additionalProperties": false,
-                                        "properties": {
-                                            "denominator": {
-                                                "default": 1,
-                                                "type": "integer"
-                                            },
-                                            "numerator": {
-                                                "type": "integer"
-                                            }
-                                        },
-                                        "required": [
-                                            "numerator"
-                                        ],
-                                        "type": "object"
-                                    }
-                                },
-                                "title": "Rational Parameter Constraint",
+                                "required": [
+                                    "numerator"
+                                ],
                                 "type": "object"
                             }
-                        ],
-                        "description": "Describes a Parameter Constraint",
-                        "title": "Parameter Constraint",
+                        },
+                        "description": "Describes a Rational Parameter Constraint",
+                        "minProperties": 1,
+                        "properties": {
+                            "enum": {
+                                "items": {
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "denominator": {
+                                            "default": 1,
+                                            "type": "integer"
+                                        },
+                                        "numerator": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "required": [
+                                        "numerator"
+                                    ],
+                                    "type": "object"
+                                },
+                                "minItems": 1,
+                                "type": "array"
+                            },
+                            "maximum": {
+                                "additionalProperties": false,
+                                "properties": {
+                                    "denominator": {
+                                        "default": 1,
+                                        "type": "integer"
+                                    },
+                                    "numerator": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "required": [
+                                    "numerator"
+                                ],
+                                "type": "object"
+                            },
+                            "minimum": {
+                                "additionalProperties": false,
+                                "properties": {
+                                    "denominator": {
+                                        "default": 1,
+                                        "type": "integer"
+                                    },
+                                    "numerator": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "required": [
+                                    "numerator"
+                                ],
+                                "type": "object"
+                            }
+                        },
+                        "title": "Rational Parameter Constraint",
                         "type": "object"
                     }
-                },
-                "properties": {
-                    "urn:x-nmos:cap:meta:label": {
-                        "description": "Freeform string label for the Constraint Set",
-                        "type": "string"
-                    },
-                    "urn:x-nmos:cap:meta:preference": {
-                        "default": 0,
-                        "description": "This value expresses the relative 'weight' that the Receiver assigns to its preference for the streams satisfied by the associated Constraint Set. The weight is an integer in the range -100 through 100, where -100 is least preferred and 100 is most preferred. When the attribute is omitted, the effective value for the associated Constraint Set is 0.",
-                        "maximum": 100,
-                        "minimum": -100,
-                        "type": "integer"
-                    }
-                },
-                "title": "Constraint Set",
+                ],
+                "description": "Describes a Parameter Constraint",
+                "title": "Parameter Constraint",
                 "type": "object"
-            },
-            "minItems": 1,
-            "type": "array"
+            }
         },
-        "version": {
-            "description": "String formatted TAI timestamp (<seconds>:<nanoseconds>) indicating when an attribute of the 'constraint_sets' object last changed",
-            "pattern": "^[0-9]+:[0-9]+$",
-            "type": "string"
-        }
+        "properties": {
+            "urn:x-nmos:cap:meta:label": {
+                "description": "Freeform string label for the Constraint Set",
+                "type": "string"
+            },
+            "urn:x-nmos:cap:meta:preference": {
+                "default": 0,
+                "description": "This value expresses the relative 'weight' that the Receiver assigns to its preference for the streams satisfied by the associated Constraint Set. The weight is an integer in the range -100 through 100, where -100 is least preferred and 100 is most preferred. When the attribute is omitted, the effective value for the associated Constraint Set is 0.",
+                "maximum": 100,
+                "minimum": -100,
+                "type": "integer"
+            }
+        },
+        "title": "Constraint Set",
+        "type": "object"
     },
-    "required": [
-        "version",
-        "values"
-    ],
+    "minItems": 1,
     "title": "Constraint Sets",
-    "type": "object"
+    "type": "array"
 }
 </textarea>
 <script>
