@@ -201,6 +201,11 @@ title: Schema constraint_sets.json
             }
         },
         "properties": {
+            "urn:x-nmos:cap:meta:enabled": {
+                "default": true,
+                "description": "This value indicates whether a Constraint Set is available to use immediately (true) or whether this is an offline capability which requires out of band configuration to activate (false). When the attribute is omitted its value is assumed to be true.",
+                "type": "boolean"
+            },
             "urn:x-nmos:cap:meta:label": {
                 "description": "Freeform string label for the Constraint Set",
                 "type": "string"
