@@ -1,14 +1,11 @@
 ---
 layout: default
-title: Schema param_constraint_integer.json
+title: Example receiver-audio.json
 ---
 
 <html>
 <meta charset="UTF-8">
-<h2>Schema param_constraint_integer.json</h2>
-<p>
-    <a href="../../schemas/resolved/param_constraint_integer.html">Resolve referenced schemas (may reorder keys)</a>
-</p>
+<h2>Example receiver-audio.json</h2>
 <div id="json-render">
 <script type="text/javascript" src="codemirror/lib/codemirror.js"></script>
 <link rel="stylesheet" href="codemirror/lib/codemirror.css">
@@ -29,24 +26,56 @@ title: Schema param_constraint_integer.json
 
 <textarea id="mytextarea">
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "description": "Describes an Integer Parameter Constraint",
-  "title": "Integer Parameter Constraint",
-  "type": "object",
-  "properties": {
-    "enum": {
-      "type": "array",
-      "minItems": 1,
-      "items": {
-        "type": "integer"
+  "id": "6605bf77-f95b-5d12-bbd7-8c4f98b79b25",
+  "version": "1605275841:891227800",
+  "label": "",
+  "description": "",
+  "tags": {
+  },
+  "device_id": "7652d792-e99f-57ff-a540-faccbf36a3a2",
+  "transport": "urn:x-nmos:transport:rtp.mcast",
+  "format": "urn:x-nmos:format:audio",
+  "interface_bindings": [
+    "eth0"
+  ],
+  "subscription": {
+    "active": false,
+    "sender_id": null
+  },
+  "caps": {
+    "media_types": [
+      "audio/L24",
+      "audio/L16"
+    ],
+    "constraint_sets": [
+      {
+        "urn:x-nmos:cap:format:channel_count": {
+          "maximum": 16
+        },
+        "urn:x-nmos:cap:format:sample_rate": {
+          "enum": [
+            { "numerator": 48000, "denominator": 1 }
+          ]
+        },
+        "urn:x-nmos:cap:transport:packet_time": {
+          "enum": [ 0.125 ]
+        }
+      },
+      {
+        "urn:x-nmos:cap:format:channel_count": {
+          "maximum": 8
+        },
+        "urn:x-nmos:cap:format:sample_rate": {
+          "enum": [
+            { "numerator": 48000, "denominator": 1 }
+          ]
+        },
+        "urn:x-nmos:cap:transport:packet_time": {
+          "enum": [ 1 ]
+        }
       }
-    },
-    "minimum": {
-      "type": "integer"
-    },
-    "maximum": {
-      "type": "integer"
-    }
+    ],
+    "version": "1605272395:492335100"
   }
 }
 </textarea>

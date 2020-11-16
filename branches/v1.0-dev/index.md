@@ -6,6 +6,7 @@
 ## Documentation for branch v1.0-dev
 
 - [Receiver Capabilities](docs/1.0._Receiver_Capabilities.md)
+- [Examples](docs/2.0._Examples.md)
 
 ## APIs for branch v1.0-dev
 

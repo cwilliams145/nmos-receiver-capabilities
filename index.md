@@ -41,6 +41,7 @@ The links to documentation, API and examples below and for DOCS and SPEC in the 
 ## Documentation for branch v1.0-dev
 
 - [Receiver Capabilities](branches/v1.0-dev/docs/1.0._Receiver_Capabilities.md)
+- [Examples](branches/v1.0-dev/docs/2.0._Examples.md)
 
 ## APIs for branch v1.0-dev
 
