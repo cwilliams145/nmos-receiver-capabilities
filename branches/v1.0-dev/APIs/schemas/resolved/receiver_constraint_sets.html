@@ -33,6 +33,11 @@ title: Schema receiver_constraint_sets.json
     "description": "Describes a Receiver with Constraint Sets",
     "properties": {
         "caps": {
+            "dependencies": {
+                "constraint_sets": [
+                    "version"
+                ]
+            },
             "description": "Capabilities",
             "properties": {
                 "constraint_sets": {
@@ -232,10 +237,6 @@ title: Schema receiver_constraint_sets.json
                     "type": "string"
                 }
             },
-            "required": [
-                "version",
-                "constraint_sets"
-            ],
             "type": "object"
         }
     },
