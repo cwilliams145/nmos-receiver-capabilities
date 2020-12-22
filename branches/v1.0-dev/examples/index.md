@@ -4,5 +4,6 @@
 
 ## Examples for branch v1.0-dev
 
+- [receiver-audio-level-bx](receiver-audio-level-bx.html)
 - [receiver-audio](receiver-audio.html)
 - [receiver-video-1080](receiver-video-1080.html)

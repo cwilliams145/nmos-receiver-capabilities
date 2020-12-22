@@ -1,0 +1,141 @@
+---
+layout: default
+title: Example receiver-audio-level-bx.json
+---
+
+<html>
+<meta charset="UTF-8">
+<h2>Example receiver-audio-level-bx.json</h2>
+<div id="json-render">
+<script type="text/javascript" src="codemirror/lib/codemirror.js"></script>
+<link rel="stylesheet" href="codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="codemirror/addon/fold/foldgutter.css">
+<script src="codemirror/mode/javascript/javascript.js"></script>
+<script src="codemirror/addon/fold/foldcode.js"></script>
+<script src="codemirror/addon/fold/foldgutter.js"></script>
+<script src="codemirror/addon/fold/brace-fold.js"></script>
+<script src="codemirror/addon/fold/indent-fold.js"></script>
+
+<style>
+  .CodeMirror {
+    border-top: 1px solid black; 
+    border-bottom: 1px solid black;
+    height: 500px;
+  }
+</style>
+
+<textarea id="mytextarea">
+{
+  "id": "0ae2691c-b9aa-4b50-b35f-8bfe840bf717",
+  "version": "1606515492:182809500",
+  "label": "",
+  "description": "",
+  "tags": {
+  },
+  "device_id": "b705a32e-cfa2-4d52-b9a8-6569e9abe28d",
+  "transport": "urn:x-nmos:transport:rtp.mcast",
+  "format": "urn:x-nmos:format:audio",
+  "interface_bindings": [
+    "eth0"
+  ],
+  "subscription": {
+    "active": false,
+    "sender_id": null
+  },
+  "caps": {
+    "media_types": [
+      "audio/L24",
+      "audio/L16"
+    ],
+    "constraint_sets": [
+      {
+        "urn:x-nmos:cap:meta:label": "SMPTE ST 2110-30 Level BX (125µs packet time)",
+        "urn:x-nmos:cap:format:channel_count": {
+          "maximum": 8
+        },
+        "urn:x-nmos:cap:format:sample_rate": {
+          "enum": [
+            { "numerator": 48000, "denominator": 1 },
+            { "numerator": 96000, "denominator": 1 }
+          ]
+        },
+        "urn:x-nmos:cap:transport:packet_time": {
+          "enum": [ 0.125 ]
+        }
+      },
+      {
+        "urn:x-nmos:cap:meta:label": "SMPTE ST 2110-30 Level BX (48kHz streams at 1ms packet time)",
+        "urn:x-nmos:cap:format:channel_count": {
+          "maximum": 8
+        },
+        "urn:x-nmos:cap:format:sample_rate": {
+          "enum": [
+            { "numerator": 48000, "denominator": 1 }
+          ]
+        },
+        "urn:x-nmos:cap:transport:packet_time": {
+          "enum": [ 1 ]
+        }
+      },
+      {
+        "urn:x-nmos:cap:meta:label": "SMPTE ST 2110-30 Level BX (96kHz streams at 1ms packet time)",
+        "urn:x-nmos:cap:format:channel_count": {
+          "maximum": 4
+        },
+        "urn:x-nmos:cap:format:sample_rate": {
+          "enum": [
+            { "numerator": 96000, "denominator": 1 }
+          ]
+        },
+        "urn:x-nmos:cap:transport:packet_time": {
+          "enum": [ 1 ]
+        }
+      }
+    ],
+    "version": "1606514372:376324100"
+  }
+}
+</textarea>
+<script>
+window.editor_json = CodeMirror.fromTextArea(mytextarea, {
+    mode: {
+        name: "javascript",
+        json: true
+    },
+    readOnly: true,
+    lineNumbers: true,
+    lineWrapping: true,
+    extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }},
+    foldGutter: true,
+    gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+    foldOptions: {
+      widget: (from, to) => {
+        var count = undefined;
+
+        // Get open / close token
+        var startToken = '{', endToken = '}';
+        var prevLine = window.editor_json.getLine(from.line);
+        if (prevLine.lastIndexOf('[') > prevLine.lastIndexOf('{')) {
+          startToken = '[', endToken = ']';
+        }
+
+        // Get json content
+        var internal = window.editor_json.getRange(from, to);
+        var toParse = startToken + internal + endToken;
+
+        // Get key count
+        try {
+          var parsed = JSON.parse(toParse);
+          count = Object.keys(parsed).length;
+        } catch(e) { }
+
+        return count ? `\u21A4${count}\u21A6` : '\u2194';
+        }
+      }
+    }
+  );
+editor_json.
+editor_json.foldCode(CodeMirror.Pos(3, 0));
+</script>
+</div>
+</html>

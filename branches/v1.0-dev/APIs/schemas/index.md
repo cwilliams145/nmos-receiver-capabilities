@@ -6,8 +6,8 @@
 
 - [constraint_set](with-refs/constraint_set.html) [(flattened)](resolved/constraint_set.html)
 - [constraint_sets](with-refs/constraint_sets.html) [(flattened)](resolved/constraint_sets.html)
-- [param_constraint_boolean](with-refs/param_constraint_boolean.html) [(flattened)](resolved/param_constraint_boolean.html)
 - [param_constraint](with-refs/param_constraint.html) [(flattened)](resolved/param_constraint.html)
+- [param_constraint_boolean](with-refs/param_constraint_boolean.html) [(flattened)](resolved/param_constraint_boolean.html)
 - [param_constraint_integer](with-refs/param_constraint_integer.html) [(flattened)](resolved/param_constraint_integer.html)
 - [param_constraint_number](with-refs/param_constraint_number.html) [(flattened)](resolved/param_constraint_number.html)
 - [param_constraint_rational](with-refs/param_constraint_rational.html) [(flattened)](resolved/param_constraint_rational.html)

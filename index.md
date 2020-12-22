@@ -4,7 +4,7 @@
 
 | Repository | Default Branch | Lint (default) | Render (all) |
 | --- | --- | --- | --- |
-| [nmos-receiver-capabilities](https://github.com/AMWA-TV/nmos-receiver-capabilities) | v1.0-dev | <a href="https://travis-ci.com/AMWA-TV/nmos-receiver-capabilities?branch=v1.0-dev"><img src="https://travis-ci.com/AMWA-TV/nmos-receiver-capabilities.svg?branch=v1.0-dev" width="100"/></a> | <a href="https://travis-ci.com/AMWA-TV/nmos-receiver-capabilities?branch=gh-pages"><img src="https://travis-ci.com/AMWA-TV/nmos-receiver-capabilities.svg?branch=gh-pages" width="100"/></a> |
+| [nmos-receiver-capabilities](https://github.com/AMWA-TV/nmos-receiver-capabilities) | v1.0-dev | [![Lint Status](https://github.com/AMWA-TV/nmos-receiver-capabilities/workflows/Lint/badge.svg)](https://github.com/AMWA-TV/nmos-receiver-capabilities/actions?query=workflow%3ALint) | [![Render Status](https://github.com/AMWA-TV/nmos-receiver-capabilities/workflows/Render/badge.svg)](https://github.com/AMWA-TV/nmos-receiver-capabilities/actions?query=workflow%3ARender) |
 
 
 ---
